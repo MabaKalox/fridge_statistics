@@ -1,0 +1,18 @@
+[package]
+name = "fridge_statistics"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tide = "0.17.0-beta.1"
+async-std = { version = "1.12.0", features = ["attributes"] }
+serde = { version = "1.0.144", features = ["derive"] }
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
